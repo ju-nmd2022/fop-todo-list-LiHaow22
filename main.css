@@ -3,12 +3,22 @@
   font-family: Arial, Helvetica, sans-serif;
   color: darkcyan;
 }
-/*End of general styling*/
 body {
   background-color: powderblue;
 }
+/*End of general styling*/
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
 .site {
-  display: flex;
+  display: grid;
 }
 .todoList {
   background-color: blanchedalmond;
@@ -21,10 +31,20 @@ body {
   background-color: aqua;
 }
 section {
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.createTodo input[type="text"] {
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  display: block;
+  width: 30rem;
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
 }
 /* The following 8 lines was made with the help of https://www.youtube.com/watch?v=6eFwtaZf6zc */
 input:not([type="checkbox"]),
