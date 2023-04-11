@@ -1,0 +1,37 @@
+/*General styling*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkcyan;
+}
+/*End of general styling*/
+body {
+  background-color: powderblue;
+}
+.site {
+  display: flex;
+}
+.todoList {
+  background-color: blanchedalmond;
+}
+.list {
+  background-color: white;
+}
+.footer {
+  justify-content: center;
+  background-color: aqua;
+}
+section {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+/* The following 8 lines was made with the help of https://www.youtube.com/watch?v=6eFwtaZf6zc */
+input:not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+}
