@@ -7,6 +7,7 @@ body {
   background-color: powderblue;
 }
 /*End of general styling*/
+
 h2 {
   font-size: 2rem;
   font-weight: 300;
@@ -20,14 +21,8 @@ h3 {
 .site {
   display: grid;
 }
-.todoList {
-  background-color: blanchedalmond;
-}
-.list {
-  background-color: white;
-}
+
 .footer {
-  justify-content: center;
   background-color: aqua;
 }
 section {
@@ -54,4 +49,88 @@ button {
   outline: none;
   background: none;
   cursor: initial;
+}
+/* Might use later... does not work right now
+.checkbox::after {
+  display: block;
+  content: "";
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+}
+
+input:checked ~ .checkbox::after {
+  width: 10%;
+  height: 10%;
+  opacity: 1;
+}
+*/
+.createTodo input[type="submit"] {
+  display: block;
+  color: aliceblue;
+  background-color: darkcyan;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  width: 32rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.createTodo input[type="submit"]:hover {
+  background-color: rgb(0, 89, 89);
+}
+.todoList .todoItem {
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+/*Length of list element!!!*/
+.todoList .list {
+  margin: 1rem 0;
+  width: 32rem;
+}
+.todoItem label {
+  display: block;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.todoItem .todoContent {
+  flex: 1 1 0;
+}
+
+.todoItem .todoContent input {
+  color: darkcyan;
+  font-size: 0.9rem;
+}
+
+.todoItem .actions {
+  display: flex;
+  align-items: center;
+}
+
+.todoItem .actions button {
+  display: block;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  color: aliceblue;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+}
+
+.todoItem .actions .edit {
+  background-color: darkcyan;
+  margin-right: 0.5rem;
+}
+
+.todoItem .actions .remove {
+  background-color: darkcyan;
+  margin-right: 0.5rem;
+}
+.todoItem .actions button:hover {
+  background-color: rgb(0, 89, 89);
 }
