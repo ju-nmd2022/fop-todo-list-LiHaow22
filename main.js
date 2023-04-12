@@ -1,4 +1,5 @@
 //This was made thanks to this video https://www.youtube.com/watch?v=6eFwtaZf6zc
+//and https://www.w3schools.com/howto/howto_js_todolist.asp
 window.addEventListener("load", () => {
   todos = JSON.parse(localStorage.getItem("todos")) || [];
   const newTodoForm = document.querySelector("#new-todo-form");
@@ -76,6 +77,7 @@ function DisplayTodos() {
       DisplayTodos();
     });
     //Edit button
+    //Edit and remove button was made with https://www.youtube.com/watch?v=6eFwtaZf6zc
     edit.addEventListener("click", (e) => {
       const input = content.querySelector("input");
       input.removeAttribute("readonly");
