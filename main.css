@@ -5,9 +5,14 @@
 }
 body {
   background-color: powderblue;
+  margin-left: 20%;
 }
 /*End of general styling*/
-
+.picture {
+  margin-left: 40rem;
+  margin-top: 13.5rem;
+  position: absolute;
+}
 h2 {
   font-size: 2rem;
   font-weight: 300;

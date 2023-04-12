@@ -1,3 +1,4 @@
+//This was made thanks to this video https://www.youtube.com/watch?v=6eFwtaZf6zc
 window.addEventListener("load", () => {
   todos = JSON.parse(localStorage.getItem("todos")) || [];
   const newTodoForm = document.querySelector("#new-todo-form");
