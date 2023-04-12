@@ -32,7 +32,7 @@ section {
   padding-right: 2rem;
   padding-left: 2rem;
 }
-.createTodo input[type="text"] {
+.create-todo input[type="text"] {
   background-color: aliceblue;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgb(160, 160, 160);
@@ -66,7 +66,7 @@ input:checked ~ .checkbox::after {
   opacity: 1;
 }
 */
-.createTodo input[type="submit"] {
+.create-todo input[type="submit"] {
   display: block;
   color: aliceblue;
   background-color: darkcyan;
@@ -77,10 +77,10 @@ input:checked ~ .checkbox::after {
   font-size: 1rem;
   cursor: pointer;
 }
-.createTodo input[type="submit"]:hover {
+.create-todo input[type="submit"]:hover {
   background-color: rgb(0, 89, 89);
 }
-.todoList .todoItem {
+.todo-list .todo-item {
   display: flex;
   align-items: center;
   background-color: aliceblue;
@@ -90,31 +90,31 @@ input:checked ~ .checkbox::after {
   padding: 1rem;
 }
 /*Length of list element!!!*/
-.todoList .list {
+.todo-list .list {
   margin: 1rem 0;
   width: 32rem;
 }
-.todoItem label {
+.todo-item label {
   display: block;
   cursor: pointer;
   margin-right: 1rem;
 }
 
-.todoItem .todoContent {
+.todo-item .todo-content {
   flex: 1 1 0;
 }
 
-.todoItem .todoContent input {
+.todo-item .todo-content input {
   color: darkcyan;
   font-size: 0.9rem;
 }
 
-.todoItem .actions {
+.todo-item .actions {
   display: flex;
   align-items: center;
 }
 
-.todoItem .actions button {
+.todo-item .actions button {
   display: block;
   padding: 0.6rem;
   border-radius: 0.6rem;
@@ -123,19 +123,19 @@ input:checked ~ .checkbox::after {
   box-shadow: 0 1px 3px rgb(160, 160, 160);
 }
 
-.todoItem .actions .edit {
+.todo-item .actions .edit {
   background-color: darkcyan;
   margin-right: 0.5rem;
 }
 
-.todoItem .actions .remove {
+.todo-item .actions .remove {
   background-color: darkcyan;
   margin-right: 0.5rem;
 }
-.todoItem .actions button:hover {
+.todo-item .actions button:hover {
   background-color: rgb(0, 89, 89);
 }
-.todoItem.done .todoContent input {
+.todo-item.done .todoContent input {
   text-decoration: line-through;
   color: rgba(0, 139, 139, 0.4);
 }
