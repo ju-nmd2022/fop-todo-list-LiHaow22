@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 
   DisplayTodos();
 });
-
+//Creating elements
 function DisplayTodos() {
   const todoList = document.querySelector("#todo-list");
   todoList.innerHTML = "";
@@ -61,7 +61,7 @@ function DisplayTodos() {
     if (todo.done) {
       todoItem.classList.add("done");
     }
-
+    //Localstorage done/not done
     input.addEventListener("change", (e) => {
       todo.done = e.target.checked;
       localStorage.setItem("todos", JSON.stringify(todos));
@@ -71,10 +71,11 @@ function DisplayTodos() {
       } else {
         todoItem.classList.remove("done");
       }
+      //End of localstorage
 
       DisplayTodos();
     });
-
+    //Edit button
     edit.addEventListener("click", (e) => {
       const input = content.querySelector("input");
       input.removeAttribute("readonly");
@@ -86,11 +87,14 @@ function DisplayTodos() {
         DisplayTodos();
       });
     });
+    //End of edit button
 
+    //Remove button
     remove.addEventListener("click", (e) => {
       todos = todos.filter((t) => t != todo);
       localStorage.setItem("todos", JSON.stringify(todos));
       DisplayTodos();
     });
   });
+  //End of remove button
 }
