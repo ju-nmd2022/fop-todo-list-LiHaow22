@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <!--Image of cleaning supplies-->
+    <div class="picture">
+      <img src="clean.png" alt="cleaning supplies" width="300rem" />
+    </div>
+    <main class="site">
+      <!--Container with title, submit form and submit button-->
+      <section class="create-task">
+        <h2>Do you have something to do?</h2>
+        <form id="new-task-form"> <!--The function in JS to create the form to submit a new task-->
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="Write your task here..."
+          />
+          <input type="submit" value="Add task" />
+        </form>
+      </section>
+      <!--List of tasks (row of task and remove button is created in JS since we don't know how many tasks there are)-->
+      <section class="task-list">
+        <h2>List of tasks</h2>
+        <div class="list" id="task-list">  <!--The function in JS to create the list of tasks-->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

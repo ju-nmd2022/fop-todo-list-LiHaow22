@@ -1,0 +1,137 @@
+/*General styling*/
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkcyan;
+}
+body {
+  background-color: powderblue;
+  margin-left: 20%;
+}
+/*End of general styling*/
+
+/*Image of cleaning supplies*/
+.picture {
+  margin-left: 40rem;
+  margin-top: 13.5rem;
+  position: absolute;
+}
+/*End of image*/
+
+/*All standalone text*/
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+/*End of text*/
+
+/*Content*/
+.site {
+  position: relative;
+  display: grid;
+}
+
+section {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.create-task input[type="text"] {
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  display: block;
+  width: 30rem;
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+}
+/* Lines 56-104 was made with https://www.youtube.com/watch?v=6eFwtaZf6zc */
+input:not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+}
+/*Add task-button*/
+.create-task input[type="submit"] {
+  display: block;
+  color: aliceblue;
+  background-color: darkcyan;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  width: 32rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.create-task input[type="submit"]:hover {
+  background-color: rgb(0, 89, 89);
+}
+/*End of task-button*/
+
+/*List element*/
+.task-list .task-item {
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.task-list .list {
+  margin: 1rem 0;
+  width: 32rem;
+}
+.task-item label {
+  display: block;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.task-item .task-content {
+  flex: 1 1 0;
+}
+
+.task-item .task-content input {
+  color: darkcyan;
+  font-size: 0.9rem;
+}
+/*Buttons*/
+.task-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-item .actions button {
+  display: block;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  color: aliceblue;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+}
+.task-item .actions .remove {
+  background-color: darkcyan;
+  margin-right: 0.5rem;
+}
+.task-item .actions button:hover {
+  background-color: rgb(0, 89, 89);
+}
+.task-item.done .task-content input {
+  text-decoration: line-through;
+  color: rgba(0, 139, 139, 0.4);
+}
+/*End of buttons*/
+/*End of list element*/
+/*End of content*/
