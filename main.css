@@ -42,7 +42,7 @@ section {
   padding-right: 2rem;
   padding-left: 2rem;
 }
-.create-todo input[type="text"] {
+.create-task input[type="text"] {
   background-color: aliceblue;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgb(160, 160, 160);
@@ -62,7 +62,7 @@ button {
   cursor: initial;
 }
 /*Add task-button*/
-.create-todo input[type="submit"] {
+.create-task input[type="submit"] {
   display: block;
   color: aliceblue;
   background-color: darkcyan;
@@ -73,13 +73,13 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
-.create-todo input[type="submit"]:hover {
+.create-task input[type="submit"]:hover {
   background-color: rgb(0, 89, 89);
 }
 /*End of task-button*/
 
 /*List element*/
-.todo-list .todo-item {
+.task-list .task-item {
   display: flex;
   align-items: center;
   background-color: aliceblue;
@@ -89,31 +89,31 @@ button {
   padding: 1rem;
 }
 
-.todo-list .list {
+.task-list .list {
   margin: 1rem 0;
   width: 32rem;
 }
-.todo-item label {
+.task-item label {
   display: block;
   cursor: pointer;
   margin-right: 1rem;
 }
 
-.todo-item .todo-content {
+.task-item .task-content {
   flex: 1 1 0;
 }
 
-.todo-item .todo-content input {
+.task-item .task-content input {
   color: darkcyan;
   font-size: 0.9rem;
 }
 /*Buttons*/
-.todo-item .actions {
+.task-item .actions {
   display: flex;
   align-items: center;
 }
 
-.todo-item .actions button {
+.task-item .actions button {
   display: block;
   padding: 0.6rem;
   border-radius: 0.6rem;
@@ -121,20 +121,14 @@ button {
   color: aliceblue;
   box-shadow: 0 1px 3px rgb(160, 160, 160);
 }
-
-.todo-item .actions .edit {
+.task-item .actions .remove {
   background-color: darkcyan;
   margin-right: 0.5rem;
 }
-
-.todo-item .actions .remove {
-  background-color: darkcyan;
-  margin-right: 0.5rem;
-}
-.todo-item .actions button:hover {
+.task-item .actions button:hover {
   background-color: rgb(0, 89, 89);
 }
-.todo-item.done .todo-content input {
+.task-item.done .task-content input {
   text-decoration: line-through;
   color: rgba(0, 139, 139, 0.4);
 }

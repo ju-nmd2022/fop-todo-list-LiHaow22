@@ -1,102 +1,98 @@
-//This was made thanks to this video https://www.youtube.com/watch?v=6eFwtaZf6zc
-//and https://www.w3schools.com/howto/howto_js_todolist.asp
+// This was made thanks to https://www.youtube.com/watch?v=6eFwtaZf6zc Retrieved: April 2023
+// and https://www.w3schools.com/howto/howto_js_todolist.asp Retrieved: April 2023
+// and https://hackr.io/blog/how-to-create-a-javascript-to-do-list#step-2-building-the-to-do-list-structure-with-html Retrieved: 23-12/2024
+// and https://www.geeksforgeeks.org/how-to-store-an-array-in-localstorage/ Retrieved: 23/12-2024
+// and https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/load_event Retrieved: 23/12-2024
+// and https://blog.logrocket.com/localstorage-javascript-complete-guide/ Retrieved: 23/12-2024
+// Code has also been reworked together with Thomas Halvarsson 23-12/2024
+
+let tasks;
+
+// ------ Add new item to the tasks list and save to local storage
 window.addEventListener("load", () => {
-  todos = JSON.parse(localStorage.getItem("todos")) || [];
-  const newTodoForm = document.querySelector("#new-todo-form");
+  tasks = JSON.parse(localStorage.getItem("tasks")) || []; // Reads local storage file into tasks variable
+  const newTaskForm = document.querySelector("#new-task-form"); // New task form where all tasks are written
 
-  newTodoForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  newTaskForm.addEventListener("submit", (e) => {
+    // Waits for the event 'submit'
+    e.preventDefault(); // e = event. Not to refresh the site by just clicking submit (add task)
 
-    const todo = {
-      content: e.target.elements.content.value,
-      done: false,
+    const task = {
+      content: e.target.elements.content.value, // Sets task to what has been inputted into the text field
+      done: false, // Checkbox for completing tasks, uses true or false
     };
 
-    todos.push(todo);
-    localStorage.setItem("todos", JSON.stringify(todos));
-    e.target.reset();
+    tasks.push(task); // Push the task data form into the tasks array
+    localStorage.setItem("tasks", JSON.stringify(tasks)); // Saves to local storage
+    e.target.reset(); // Resets the text box to "Write your task here..."
 
-    DisplayTodos();
+    ShowTasks(); // Refreshes the task list with the new data
   });
 
-  DisplayTodos();
+  ShowTasks(); // Loading the list for the first time (empty or filled from local storage)
 });
-//Creating elements
-function DisplayTodos() {
-  const todoList = document.querySelector("#todo-list");
-  todoList.innerHTML = "";
+// ------ Creating elements
+function ShowTasks() {
+  const taskList = document.querySelector("#task-list"); // Task list HTML element
+  taskList.innerHTML = null; // Clears visual list with needing to refresh the page
 
-  todos.forEach((todo) => {
-    const todoItem = document.createElement("div");
-    todoItem.classList.add("todo-item");
+  // ------ For each task in the tasks list do the following:
+  tasks.forEach((task, index) => {
+    const taskItem = document.createElement("div"); // List each task from the task array
+    taskItem.classList.add("task-item"); // When creating new tasks, JS creates a new container based on the information given in the CSS file (task-item is found in the CSS)
 
+    // Creates elements which can be styled with CSS (will show the content inputted into )
     const label = document.createElement("label");
     const input = document.createElement("input");
     const span = document.createElement("span");
     const content = document.createElement("div");
     const actions = document.createElement("div");
-    const edit = document.createElement("button");
     const remove = document.createElement("button");
 
     input.type = "checkbox";
-    input.checked = todo.done;
+    input.checked = task.done; // Created opportunity to style when checked off and sets value to true when checked off
 
-    content.classList.add("todo-content");
+    // Add CSS classes to HTML element
+    content.classList.add("task-content");
     actions.classList.add("actions");
-    edit.classList.add("edit");
     remove.classList.add("remove");
 
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-    edit.innerHTML = "Edit";
-    remove.innerHTML = "Remove";
+    content.innerHTML = `<input type="text" value="${task.content}" readonly>`; // The task written out (not editable)
+    remove.innerHTML = "Remove"; // Removes a task from list
 
+    // appendChild puts the (content) into the parent in HTML parent.appendchild(content);
     label.appendChild(input);
     label.appendChild(span);
-    actions.appendChild(edit);
     actions.appendChild(remove);
-    todoItem.appendChild(label);
-    todoItem.appendChild(content);
-    todoItem.appendChild(actions);
-    todoList.appendChild(todoItem);
+    taskItem.appendChild(label);
+    taskItem.appendChild(content);
+    taskItem.appendChild(actions);
+    taskList.appendChild(taskItem);
 
-    if (todo.done) {
-      todoItem.classList.add("done");
+    if (task.done) {
+      taskItem.classList.add("done"); // Saves the variable to taskItem IF the task is marked as done
     }
-    //Localstorage done/not done
+
+    // Localstorage done/not done
     input.addEventListener("change", (e) => {
-      todo.done = e.target.checked;
-      localStorage.setItem("todos", JSON.stringify(todos));
+      task.done = e.target.checked; // If the task is done/checked off
+      localStorage.setItem("tasks", JSON.stringify(tasks)); // Sves the checked off task to local storage
 
-      if (todo.done) {
-        todoItem.classList.add("done");
+      if (task.done) {
+        taskItem.classList.add("done"); // Mark status as done
       } else {
-        todoItem.classList.remove("done");
+        taskItem.classList.remove("done"); // Ability to remove done status
       }
-      //End of localstorage
 
-      DisplayTodos();
+      ShowTasks(); // Refresh the list
     });
-    //Edit button
-    //Edit and remove button was made with https://www.youtube.com/watch?v=6eFwtaZf6zc
-    edit.addEventListener("click", (e) => {
-      const input = content.querySelector("input");
-      input.removeAttribute("readonly");
-      input.focus();
-      input.addEventListener("blur", (e) => {
-        input.setAttribute("readonly", true);
-        todo.content = e.target.value;
-        localStorage.setItem("todos", JSON.stringify(todos));
-        DisplayTodos();
-      });
-    });
-    //End of edit button
 
-    //Remove button
-    remove.addEventListener("click", (e) => {
-      todos = todos.filter((t) => t != todo);
-      localStorage.setItem("todos", JSON.stringify(todos));
-      DisplayTodos();
+    // Remove button
+    remove.addEventListener("click", () => {
+      tasks.splice(index, 1); // Removes task by index (by order in the list)
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      //console.log(index);
+      ShowTasks(); // Automatic refresh the task list after clicking on remove button
     });
   });
-  //End of remove button
 }
